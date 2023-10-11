@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using CarDealer.Models;
-using System.Lingq;
+using System.Linq;
 
 namespace CarDealer.Controllers
 {

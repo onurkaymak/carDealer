@@ -34,5 +34,12 @@ namespace CarDealer.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      Car thisCar = _db.Cars
+          .FirstOrDefault(car => car.CarId == id);
+      return View(thisCar);
+    }
   }
 }

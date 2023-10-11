@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CarDealer.Models.Car
+
+<h2>Car Details</h2>
+<hr/>
+<h3>@Html.DisplayNameFor(model => model.Brand): @Html.DisplayFor(model => model.Brand)</h3>  
+<h3>@Html.DisplayNameFor(model => model.Model): @Html.DisplayFor(model => model.Model)</h3>
+<h3>@Html.DisplayNameFor(model => model.ModelYear): @Html.DisplayFor(model => model.ModelYear)</h3>
+<h3>@Html.DisplayNameFor(model => model.Mileage): @Html.DisplayFor(model => model.Mileage)</h3>
+<h3>@Html.DisplayNameFor(model => model.Color): @Html.DisplayFor(model => model.Color)</h3>
+
+@Html.ActionLink("Back to inventory", "Index")

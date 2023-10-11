@@ -1,5 +1,5 @@
 
-namespace CarDealer
+namespace CarDealer.Models
 {
   public class Car
   {

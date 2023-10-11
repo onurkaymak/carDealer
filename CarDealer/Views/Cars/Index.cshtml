@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using CarDealer.Models;
+
+<h1>Inventory</h1>
+<hr>
+
+@if (@Model.Count == 0)
+{
+  <h3>No cars for sale at this moment.</h3>
+}
+else
+{
+  <ul>
+    @foreach(Car car in Model)
+    {
+      <li>@Html.ActionLink($"{car.Brand} {car.Model}", "Details", new { id = car.CarId })</li>
+    }
+  </ul>
+}
+
+@Html.ActionLink("Home", "Index", "Home")
+<br/>
+@Html.ActionLink("Add new car to inventory", "Create")

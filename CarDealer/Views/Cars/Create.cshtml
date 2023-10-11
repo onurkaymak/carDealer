@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CarDealer.Models.Car
+
+<h4>Add a new car into inventory</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Brand)
+  @Html.TextBoxFor(model => model.Brand)
+  <br/>
+  <br/>
+  @Html.LabelFor(model => model.Model)
+  @Html.TextBoxFor(model => model.Model)
+  <br/>
+  <br/>
+  @Html.LabelFor(model => model.ModelYear)
+  @Html.TextBoxFor(model => model.ModelYear)
+  <br/>
+  <br/>
+  @Html.LabelFor(model => model.Mileage)
+  @Html.TextBoxFor(model => model.Mileage)
+  <br/>
+  <br/>
+  @Html.LabelFor(model => model.Color)
+  @Html.TextBoxFor(model => model.Color)
+  <br/>
+  <br/>
+  <input type="submit" value="Add new car" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all cars", "Index")</p>

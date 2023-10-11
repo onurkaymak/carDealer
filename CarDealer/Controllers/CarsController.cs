@@ -26,5 +26,13 @@ namespace CarDealer.Controllers
 
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Car car)
+    {
+      _db.Cars.Add(car);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

@@ -8,6 +8,8 @@
 
 <h4>Edit this car: @Html.DisplayFor(model => model.ModelYear) @Html.DisplayFor(model => model.Brand) @Html.DisplayFor(model => model.Model)</h4>
 
+
+
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.CarId)
@@ -30,4 +32,4 @@
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to inventory", "Index")</p>
+@Html.ActionLink("Back to inventory", "Index")

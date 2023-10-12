@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CarDealer.Models.Customer
+
+<h4>Add a new customer</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.PhoneNumber)
+  @Html.TextBoxFor(model => model.PhoneNumber)
+
+  <input type="submit" value="Add new customer" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all customers", "Index")</p>

@@ -41,5 +41,19 @@ namespace CarDealer.Controllers
           .FirstOrDefault(car => car.CarId == id);
       return View(thisCar);
     }
+
+    public ActionResult Edit(int id)
+    {
+      Car thisCar = _db.Cars.FirstOrDefault(car => car.CarId == id);
+      return View(thisCar);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Car car)
+    {
+      _db.Cars.Update(car);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = car.CarId });
+    }
   }
 }

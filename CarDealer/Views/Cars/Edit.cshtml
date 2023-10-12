@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CarDealer.Models.Car
+
+<h2>Edit Information</h2>
+
+<h4>Edit this car: @Html.DisplayFor(model => model.ModelYear) @Html.DisplayFor(model => model.Brand) @Html.DisplayFor(model => model.Model)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CarId)
+
+  @Html.LabelFor(model => model.Brand)
+  @Html.EditorFor(model => model.Brand)
+
+  @Html.LabelFor(model => model.Model)
+  @Html.EditorFor(model => model.Model)
+
+  @Html.LabelFor(model => model.ModelYear)
+  @Html.EditorFor(model => model.ModelYear)
+
+  @Html.LabelFor(model => model.Mileage)
+  @Html.EditorFor(model => model.Mileage)
+
+  @Html.LabelFor(model => model.Color)
+  @Html.EditorFor(model => model.Color)
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to inventory", "Index")</p>

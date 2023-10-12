@@ -8,6 +8,8 @@ namespace CarDealer.Models
 
     public DbSet<Customer> Customers { get; set; }
 
+    public DbSet<PendingSales> Pending_Sales { get; set; }
+
     public CarDealerContext(DbContextOptions options) : base(options) { }
   }
 }

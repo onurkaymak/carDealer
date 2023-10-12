@@ -1,4 +1,3 @@
-
 namespace CarDealer.Models
 {
   public class Car

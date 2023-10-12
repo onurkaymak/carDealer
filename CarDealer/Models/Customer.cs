@@ -5,5 +5,6 @@ namespace CarDealer.Models
     public int CustomerId { get; set; }
     public string Name { get; set; }
     public int PhoneNumber { get; set; }
+    public List<PendingSales> JoinEntities { get; }  // collection navigation property.
   }
 }

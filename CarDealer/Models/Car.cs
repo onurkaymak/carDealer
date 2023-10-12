@@ -13,5 +13,7 @@ namespace CarDealer.Models
     public int Mileage { get; set; }
 
     public string Color { get; set; }
+
+    public List<PendingSales> JoinEntities { get; }  // collection navigation property.
   }
 }

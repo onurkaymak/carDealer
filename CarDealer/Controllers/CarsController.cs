@@ -55,5 +55,20 @@ namespace CarDealer.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = car.CarId });
     }
+
+    public ActionResult Delete(int id)
+    {
+      Car thisCar = _db.Cars.FirstOrDefault(car => car.CarId == id);
+      return View(thisCar);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Car thisCar = _db.Cars.FirstOrDefault(car => car.CarId == id);
+      _db.Cars.Remove(thisCar);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

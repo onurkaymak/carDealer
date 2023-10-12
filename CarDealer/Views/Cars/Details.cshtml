@@ -13,5 +13,18 @@
 <h3>@Html.DisplayNameFor(model => model.Color): @Html.DisplayFor(model => model.Color)</h3>
 
 @Html.ActionLink("Back to Inventory", "Index")
-@Html.ActionLink("Edit the Information", "Edit", new { id = Model.CarId })
+<br/>
+<br/>
+@Html.ActionLink("Edit Car Information", "Edit", new { id = Model.CarId })
+<br/>
+<br/>
 @Html.ActionLink("Delete This Car", "Delete", new { id = Model.CarId })
+<br/>
+<br/>
+
+@* @Html.ActionLink("Mark This Car as Pending", "Details", "Cars", new { parameter = "true" }) *@
+
+
+
+
+

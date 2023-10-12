@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CarDealer.Models
 {
   public class Car

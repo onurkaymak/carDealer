@@ -22,7 +22,7 @@ namespace CarDealer
                   )
                 );
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ToDoListContext>()
+                .AddEntityFrameworkStores<CarDealerContext>()
                 .AddDefaultTokenProviders();
 
       WebApplication app = builder.Build();

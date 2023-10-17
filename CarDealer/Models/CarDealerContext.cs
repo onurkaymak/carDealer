@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CarDealer.Models
 {
-  public class CarDealerContext : DbContext
+  public class CarDealerContext : IdentityDbContext<ApplicationUser>
   {
     public DbSet<Car> Cars { get; set; }
 

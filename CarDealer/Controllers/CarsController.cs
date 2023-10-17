@@ -95,5 +95,14 @@ namespace CarDealer.Controllers
       }
       return RedirectToAction("Details", new { id = car.CarId });
     }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+      PendingSales joinEntry = _db.Pending_Sales.FirstOrDefault(entry => entry.PendingSalesId == joinId);
+      _db.Pending_Sales.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

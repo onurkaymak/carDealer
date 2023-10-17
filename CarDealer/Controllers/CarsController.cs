@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using CarDealer.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarDealer.Controllers
 {
@@ -38,6 +40,8 @@ namespace CarDealer.Controllers
     public ActionResult Details(int id)
     {
       Car thisCar = _db.Cars
+          .Include(car => car.JoinEntities)
+          .ThenInclude(join => join.Customer)
           .FirstOrDefault(car => car.CarId == id);
       return View(thisCar);
     }
@@ -69,6 +73,27 @@ namespace CarDealer.Controllers
       _db.Cars.Remove(thisCar);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult AddCarToPending(int id)
+    {
+      Car thisCar = _db.Cars.FirstOrDefault(cars => cars.CarId == id);
+      ViewBag.CustomerId = new SelectList(_db.Customers, "CustomerId", "Name");
+      return View(thisCar);
+    }
+
+    [HttpPost]
+    public ActionResult AddCarToPending(Car car, int customerId)
+    {
+#nullable enable
+      PendingSales? joinEntity = _db.Pending_Sales.FirstOrDefault(join => (join.CustomerId == customerId && join.CarId == car.CarId));
+#nullable disable
+      if (joinEntity == null && customerId != 0)
+      {
+        _db.Pending_Sales.Add(new PendingSales() { CustomerId = customerId, CarId = car.CarId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = car.CarId });
     }
   }
 }

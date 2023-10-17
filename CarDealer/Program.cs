@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CarDealer.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CarDealer
 {
@@ -20,6 +21,9 @@ namespace CarDealer
                     )
                   )
                 );
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ToDoListContext>()
+                .AddDefaultTokenProviders();
 
       WebApplication app = builder.Build();
 
@@ -27,6 +31,9 @@ namespace CarDealer
       app.UseHttpsRedirection();
       app.UseStaticFiles();
       app.UseRouting();
+
+      app.UseAuthentication();
+      app.UseAuthorization();
 
       app.MapControllerRoute(
         name: "default",

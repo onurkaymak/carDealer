@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using CarDealer.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarDealer.Controllers
 {
+  [Authorize]
   public class CarsController : Controller
   {
     private readonly CarDealerContext _db;
@@ -16,6 +18,7 @@ namespace CarDealer.Controllers
       _db = db;
     }
 
+    [AllowAnonymous]
     public ActionResult Index()
     {
       List<Car> model = _db.Cars.ToList();
